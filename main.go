@@ -138,8 +138,8 @@ func forwardUDP2WS(
 		wsMsgType = websocket.BinaryMessage
 	}
 
+	buf := make([]byte, 1024)
 	for {
-		buf := make([]byte, 1024)
 		n, err := udpConn.Read(buf)
 		if err != nil {
 			errChan <- err
